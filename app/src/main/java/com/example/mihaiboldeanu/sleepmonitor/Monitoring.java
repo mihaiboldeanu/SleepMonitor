@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -178,9 +177,13 @@ public class Monitoring extends AppCompatActivity implements AdapterView.OnItemC
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
         super.onDestroy();
+        Log.d(TAG, "onDestroy: rcvr 1.");
         unregisterReceiver(mBroadcastReceiver1);
+        Log.d(TAG, "onDestroy: rcvr 2.");
         unregisterReceiver(mBroadcastReceiver2);
+        Log.d(TAG, "onDestroy: rcvr 3.");
         unregisterReceiver(mBroadcastReceiver3);
+        Log.d(TAG, "onDestroy: rcvr 4.");
         unregisterReceiver(mBroadcastReceiver4);
         //mBluetoothAdapter.cancelDiscovery();
     }
@@ -244,6 +247,8 @@ public class Monitoring extends AppCompatActivity implements AdapterView.OnItemC
         public void onReceive(Context context, Intent intent) {
             String text = intent.getStringExtra("theMessage");
             messages.append(text+"\n");
+
+            incomingMessage.setText(messages);
 
 
         }

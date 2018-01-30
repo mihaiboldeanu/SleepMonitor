@@ -133,7 +133,7 @@ public class BluetoothConnectionService {
                 // Close Socket
                 try {
                     mmSocket.close();
-                    Log.d(TAG,"run: CoClosed socket");
+                    Log.d(TAG,"run: Closed socket");
                 } catch (IOException e1) {
                     Log.e(TAG,"mConnectThread: run : Unable to close connection in socket "+ e1.getMessage());
                 }
